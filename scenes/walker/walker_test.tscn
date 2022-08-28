@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://scenes/walker/models/walker_3a.escn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/walker/models/walker_material.tres" type="Material" id=2]
+[ext_resource path="res://scenes/walker/models/Armature_003Action.tres" type="Animation" id=3]
+[ext_resource path="res://scenes/walker/models/Armature_002Action.tres" type="Animation" id=4]
+[ext_resource path="res://scenes/walker/models/Armature_001Action.tres" type="Animation" id=5]
+[ext_resource path="res://scenes/walker/walker_test.gd" type="Script" id=6]
+[ext_resource path="res://scenes/pumpkin/Pumpkin.tscn" type="PackedScene" id=7]
+
+[node name="walker_test" instance=ExtResource( 1 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0 )
+script = ExtResource( 6 )
+
+[node name="CharacterController" parent="." index="4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="Body" parent="CharacterController" index="5"]
+transform = Transform( -0.685494, -0.00225578, -0.728075, -0.0138352, 0.999855, 0.00992826, 0.727947, 0.0168789, -0.685425, 0.328111, 3.29116, 0.133855 )
+
+[node name="AnimationPlayer" parent="CharacterController/Body/Armature001" index="0"]
+anims/ArmatureAction = ExtResource( 5 )
+
+[node name="AnimationPlayer" parent="CharacterController/Body/Armature002" index="0"]
+anims/ArmatureAction = ExtResource( 4 )
+
+[node name="AnimationPlayer" parent="CharacterController/Body/Armature003" index="0"]
+anims/ArmatureAction = ExtResource( 3 )
+
+[node name="Leg" parent="CharacterController/Body" index="5"]
+material/0 = ExtResource( 2 )
+
+[node name="Icosphere" parent="CharacterController/Body/Leg" index="0"]
+material/0 = ExtResource( 2 )
+
+[node name="Leg001" parent="CharacterController/Body" index="6"]
+material/0 = ExtResource( 2 )
+
+[node name="Icosphere001" parent="CharacterController/Body/Leg001" index="0"]
+material/0 = ExtResource( 2 )
+
+[node name="Leg002" parent="CharacterController/Body" index="7"]
+material/0 = ExtResource( 2 )
+
+[node name="Icosphere002" parent="CharacterController/Body/Leg002" index="0"]
+material/0 = ExtResource( 2 )
+
+[node name="Leg003" parent="CharacterController/Body" index="8"]
+material/0 = ExtResource( 2 )
+
+[node name="Icosphere003" parent="CharacterController/Body/Leg003" index="0"]
+material/0 = ExtResource( 2 )
+
+[node name="Pumpkin" parent="CharacterController/Body" index="9" instance=ExtResource( 7 )]
+transform = Transform( 4.2, 3.72529e-09, -1.2517e-07, -3.91155e-09, 4, 1.17347e-08, 1.2517e-07, -1.11759e-08, 4.2, 0.0145854, -1.05406, -0.0104665 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="." index="5"]
+transform = Transform( 0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 11.8486, 0 )
+visible = false

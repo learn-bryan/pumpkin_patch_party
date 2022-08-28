@@ -1,0 +1,13 @@
+[gd_resource type="Animation" format=2]
+
+[resource]
+resource_name = "BodyAction"
+length = 8.83333
+loop = true
+tracks/0/type = "transform"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = true
+tracks/0/enabled = false
+tracks/0/keys = PoolRealArray( 8.79167, 1, 0.183233, 3.37901, -0.0462445, 0.0120865, -0.00976201, 0.00477737, 0.999868, 1, 1, 1, 8.83333, 1, 0.202581, 3.32015, -0.0812812, 0.0127174, -0.00884026, 0.00652417, 0.999859, 1, 1, 1 )

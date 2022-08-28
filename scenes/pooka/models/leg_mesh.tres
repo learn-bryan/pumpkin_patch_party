@@ -1,0 +1,21 @@
+[gd_resource type="CylinderMesh" load_steps=3 format=2]
+
+[ext_resource path="res://scenes/pooka/models/leg_shader.shader" type="Shader" id=1]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 1 )
+shader_param/use_texture = false
+shader_param/albedo = Color( 0.396078, 0.317647, 0.027451, 1 )
+shader_param/shade = true
+shader_param/shade_color = Color( 0, 0, 0, 1 )
+shader_param/shade_strength = 0.5
+shader_param/shade_bias = 0.01
+shader_param/specular = false
+shader_param/specular_color = Color( 1, 1, 1, 1 )
+shader_param/specular_strength = 1.0
+shader_param/specular_bias = 0.9
+
+[resource]
+material = SubResource( 1 )
+top_radius = 0.2
+bottom_radius = 0.001

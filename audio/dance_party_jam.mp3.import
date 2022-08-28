@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/dance_party_jam.mp3-ce12138954d854012137fde6de1696ad.mp3str"
+
+[deps]
+
+source_file="res://audio/dance_party_jam.mp3"
+dest_files=[ "res://.import/dance_party_jam.mp3-ce12138954d854012137fde6de1696ad.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

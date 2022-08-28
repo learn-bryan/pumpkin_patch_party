@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://scenes/walker/models/walker_toon.shader" type="Shader" id=1]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/use_texture = false
+shader_param/albedo = Color( 0.541176, 0.4, 0.0862745, 1 )
+shader_param/shade = true
+shader_param/shade_color = Color( 0, 0, 0, 1 )
+shader_param/shade_strength = 0.5
+shader_param/shade_bias = 0.01
+shader_param/specular = false
+shader_param/specular_color = Color( 1, 1, 1, 1 )
+shader_param/specular_strength = 1.0
+shader_param/specular_bias = 0.9

@@ -1,0 +1,334 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://scenes/Pump Kin/Pump Kin.tscn" type="PackedScene" id=1]
+[ext_resource path="res://shaders/ConvEdgeOutlineSS.shader" type="Shader" id=2]
+[ext_resource path="res://scenes/bat/Bat.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/boombox/BoomBox.tscn" type="PackedScene" id=4]
+[ext_resource path="res://audio/dance_party_jam.mp3" type="AudioStream" id=5]
+[ext_resource path="res://scenes/player/Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/pumpkin_patch/PumpkinPatch.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/wheat1/Wheat.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/dirt/Dirt.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/dirt/DirtLarge.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/fense/large_fense.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scenes/ground/Ground.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scenes/graveyard/Graveyard.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scenes/walker/walker_test.tscn" type="PackedScene" id=14]
+
+[sub_resource type="ProceduralSky" id=1]
+sky_top_color = Color( 0.831373, 0.533333, 0.180392, 1 )
+sky_horizon_color = Color( 0.913725, 0.352941, 0.0470588, 1 )
+sky_curve = 0.107029
+ground_bottom_color = Color( 0.564706, 0.364706, 0.0823529, 1 )
+ground_horizon_color = Color( 0.87451, 0.372549, 0.145098, 1 )
+sun_color = Color( 1, 0, 0, 1 )
+sun_latitude = 18.0
+sun_longitude = -59.53
+
+[sub_resource type="Environment" id=2]
+background_mode = 2
+background_sky = SubResource( 1 )
+background_color = Color( 0.392157, 0.294118, 0.156863, 1 )
+ambient_light_color = Color( 0.905882, 0.419608, 0.027451, 1 )
+fog_color = Color( 0.615686, 0.494118, 0.239216, 1 )
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = ExtResource( 2 )
+shader_param/outline_intensity = 1.0
+shader_param/outline_bias = 0.0
+shader_param/outline_color = Color( 0, 0, 0, 1 )
+
+[sub_resource type="QuadMesh" id=4]
+material = SubResource( 3 )
+size = Vector2( 2, 2 )
+
+[node name="PartyScene" type="Spatial"]
+
+[node name="Pump Kin" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.918, 0, -280.155 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 31.9467, 0 )
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 2 )
+
+[node name="ScreenShader" type="MeshInstance" parent="."]
+extra_cull_margin = 16384.0
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="BoomBox" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.463342, 0, 0.886179, 0, 1, 0, -0.886179, 0, 0.463342, -23.3213, 0.370022, -280.155 )
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="BoomBox"]
+transform = Transform( -0.999997, 0, -0.00253072, 0, 1, 0, 0.00253072, 0, -0.999997, -0.0134888, 0.71938, 0.0182495 )
+stream = ExtResource( 5 )
+unit_db = 20.0
+autoplay = true
+emission_angle_enabled = true
+emission_angle_degrees = 90.0
+
+[node name="Pumpkin Fields" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.3722, 0.0874419, -0.057025 )
+
+[node name="PumpkinPatch" parent="Pumpkin Fields" instance=ExtResource( 7 )]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0 )
+
+[node name="PumpkinPatch2" parent="Pumpkin Fields" instance=ExtResource( 7 )]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 25, 0, 0 )
+
+[node name="PumpkinPatch4" parent="Pumpkin Fields" instance=ExtResource( 7 )]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 25 )
+
+[node name="PumpkinPatch3" parent="Pumpkin Fields" instance=ExtResource( 7 )]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -24.9377, 0, 0 )
+
+[node name="PumpkinPatch5" parent="Pumpkin Fields" instance=ExtResource( 7 )]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -24.9377, 0, 25 )
+
+[node name="PumpkinPatch7" parent="Pumpkin Fields" instance=ExtResource( 7 )]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -49.844, 0, 0 )
+
+[node name="PumpkinPatch8" parent="Pumpkin Fields" instance=ExtResource( 7 )]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -49.844, 0, 25 )
+
+[node name="PumpkinPatch6" parent="Pumpkin Fields" instance=ExtResource( 7 )]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 25, 0, 25 )
+
+[node name="PumpkinPatch9" parent="Pumpkin Fields" instance=ExtResource( 7 )]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 49.9706, 0, 0 )
+
+[node name="PumpkinPatch10" parent="Pumpkin Fields" instance=ExtResource( 7 )]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 49.9706, 0, 25 )
+
+[node name="PumpkinPatch11" parent="Pumpkin Fields" instance=ExtResource( 7 )]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 74.9284, 0, 0 )
+
+[node name="PumpkinPatch12" parent="Pumpkin Fields" instance=ExtResource( 7 )]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 74.9284, 0, 25 )
+
+[node name="Wheat Fields" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.9185, 0, 0 )
+
+[node name="Wheat" parent="Wheat Fields" instance=ExtResource( 8 )]
+transform = Transform( 0.75, 0, 0, 0, 0.5, 0, 0, 0, 0.75, -50, 0, -50 )
+
+[node name="Wheat3" parent="Wheat Fields" instance=ExtResource( 8 )]
+transform = Transform( 0.75, 0, 0, 0, 0.5, 0, 0, 0, 0.75, -50, 0, -125 )
+
+[node name="Wheat4" parent="Wheat Fields" instance=ExtResource( 8 )]
+transform = Transform( 0.75, 0, 0, 0, 0.5, 0, 0, 0, 0.75, 50, 0, -125 )
+
+[node name="Wheat5" parent="Wheat Fields" instance=ExtResource( 8 )]
+transform = Transform( 0.75, 0, 0, 0, 0.5, 0, 0, 0, 0.75, 100, 0, -200 )
+
+[node name="Wheat7" parent="Wheat Fields" instance=ExtResource( 8 )]
+transform = Transform( 0.75, 0, 0, 0, 0.5, 0, 0, 0, 0.75, 100, 0, -275 )
+
+[node name="Wheat8" parent="Wheat Fields" instance=ExtResource( 8 )]
+transform = Transform( 0.75, 0, 0, 0, 0.5, 0, 0, 0, 0.75, -100, 0, -275 )
+
+[node name="Wheat9" parent="Wheat Fields" instance=ExtResource( 8 )]
+transform = Transform( 0.75, 0, 0, 0, 0.5, 0, 0, 0, 0.75, -113.643, 0, -350 )
+
+[node name="Wheat10" parent="Wheat Fields" instance=ExtResource( 8 )]
+transform = Transform( 0.75, 0, 0, 0, 0.5, 0, 0, 0, 0.75, -38.6429, 0, -350 )
+
+[node name="Wheat11" parent="Wheat Fields" instance=ExtResource( 8 )]
+transform = Transform( 0.75, 0, 0, 0, 0.5, 0, 0, 0, 0.75, 36.2169, 0, -350 )
+
+[node name="Wheat12" parent="Wheat Fields" instance=ExtResource( 8 )]
+transform = Transform( 0.75, 0, 0, 0, 0.5, 0, 0, 0, 0.75, 111.217, 0, -350 )
+
+[node name="Wheat13" parent="Wheat Fields" instance=ExtResource( 8 )]
+transform = Transform( 0.75, 0, 0, 0, 0.5, 0, 0, 0, 0.75, -124.471, 0, -126.511 )
+
+[node name="Wheat14" parent="Wheat Fields" instance=ExtResource( 8 )]
+transform = Transform( 0.75, 0, 0, 0, 0.5, 0, 0, 0, 0.75, -38.6429, 0, -425.101 )
+
+[node name="Wheat15" parent="Wheat Fields" instance=ExtResource( 8 )]
+transform = Transform( 0.75, 0, 0, 0, 0.5, 0, 0, 0, 0.75, 36.2169, 0, -425.101 )
+
+[node name="Wheat16" parent="Wheat Fields" instance=ExtResource( 8 )]
+transform = Transform( 0.75, 0, 0, 0, 0.5, 0, 0, 0, 0.75, 124.741, 0, -126.308 )
+
+[node name="Wheat6" parent="Wheat Fields" instance=ExtResource( 8 )]
+transform = Transform( 0.75, 0, 0, 0, 0.5, 0, 0, 0, 0.75, -100, 0, -200 )
+
+[node name="Wheat2" parent="Wheat Fields" instance=ExtResource( 8 )]
+transform = Transform( 0.75, 0, 0, 0, 0.5, 0, 0, 0, 0.75, 50, 0, -50 )
+
+[node name="Dirt Ground" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.184551, 0 )
+
+[node name="DirtMesh" parent="Dirt Ground" instance=ExtResource( 9 )]
+transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 10, 14.3668, -0.258055, -61.963 )
+
+[node name="DirtMesh2" parent="Dirt Ground" instance=ExtResource( 9 )]
+transform = Transform( 3, 0, 0, 0, 1, 0, 0, 0, 10, 14.3668, -0.258055, -161.842 )
+
+[node name="DirtLargeMesh" parent="Dirt Ground" instance=ExtResource( 10 )]
+transform = Transform( 1.75, 0, 0, 0, 1, 0, 0, 0, 1.75, 0, -0.181684, -226.624 )
+
+[node name="Player" parent="." instance=ExtResource( 6 )]
+transform = Transform( -0.581782, 0, -0.813344, 0, 1, 0, 0.813344, 0, -0.581782, -4.48996, 0, -204.603 )
+
+[node name="Fenses" type="Spatial" parent="."]
+
+[node name="Large Fense" parent="Fenses" instance=ExtResource( 11 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 28.0076, 0, 38.2332 )
+
+[node name="Large Fense3" parent="Fenses" instance=ExtResource( 11 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -44.885, 0, 38.2332 )
+
+[node name="Large Fense13" parent="Fenses" instance=ExtResource( 11 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 28.0076, 0, -327.142 )
+
+[node name="Large Fense14" parent="Fenses" instance=ExtResource( 11 )]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, -44.885, 0, -327.142 )
+
+[node name="Large Fense2" parent="Fenses" instance=ExtResource( 11 )]
+transform = Transform( -1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -72.6737, 0, 10.2933 )
+
+[node name="Large Fense4" parent="Fenses" instance=ExtResource( 11 )]
+transform = Transform( -1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -72.6737, 0, -62.9714 )
+
+[node name="Large Fense5" parent="Fenses" instance=ExtResource( 11 )]
+transform = Transform( -1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -72.6737, 0, -135.744 )
+
+[node name="Large Fense6" parent="Fenses" instance=ExtResource( 11 )]
+transform = Transform( -1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -72.6737, 0, -208.501 )
+
+[node name="Large Fense7" parent="Fenses" instance=ExtResource( 11 )]
+transform = Transform( -1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, -72.6737, 0, -281.371 )
+
+[node name="Large Fense8" parent="Fenses" instance=ExtResource( 11 )]
+transform = Transform( -1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, 73.7929, 0, 10.2933 )
+
+[node name="Large Fense9" parent="Fenses" instance=ExtResource( 11 )]
+transform = Transform( -1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, 73.7929, 0, -62.9714 )
+
+[node name="Large Fense10" parent="Fenses" instance=ExtResource( 11 )]
+transform = Transform( -1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, 73.7929, 0, -135.744 )
+
+[node name="Large Fense11" parent="Fenses" instance=ExtResource( 11 )]
+transform = Transform( -1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, 73.7929, 0, -208.501 )
+
+[node name="Large Fense12" parent="Fenses" instance=ExtResource( 11 )]
+transform = Transform( -1.31134e-07, 0, 3, 0, 3, 0, -3, 0, -1.31134e-07, 73.7929, 0, -281.371 )
+
+[node name="Ground Group" type="Spatial" parent="."]
+
+[node name="Ground" parent="Ground Group" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -222.661, 0, -162.74 )
+
+[node name="Ground2" parent="Ground Group" instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 226.137, 0, -162.649 )
+
+[node name="Ground3" parent="Ground Group" instance=ExtResource( 12 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 175.478, 0, 187.017 )
+
+[node name="Ground5" parent="Ground Group" instance=ExtResource( 12 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -222.974, 0, 187.017 )
+
+[node name="Ground4" parent="Ground Group" instance=ExtResource( 12 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 176.347, 0, -510.893 )
+
+[node name="Ground6" parent="Ground Group" instance=ExtResource( 12 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -169.873, 0, -510.893 )
+
+[node name="Bat Group" type="Spatial" parent="."]
+
+[node name="Bat" parent="Bat Group" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -21.5141, 10.7384, -280.155 )
+MOVE_SPEED = 30.0
+MODE = 2
+
+[node name="Bat2" parent="Bat Group" instance=ExtResource( 3 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 22.766, 18.0707, -0.411738 )
+MOVE_SPEED = 30.0
+MODE = 3
+
+[node name="Bat3" parent="Bat Group" instance=ExtResource( 3 )]
+transform = Transform( 0.165471, 0, -0.471825, 0, 0.5, 0, 0.471825, 0, 0.165471, 19.8068, 18.0707, -309.479 )
+MOVE_SPEED = 30.0
+
+[node name="Bat4" parent="Bat Group" instance=ExtResource( 3 )]
+transform = Transform( -0.0301584, 2.63653e-09, 0.49909, 4.37114e-08, 0.5, 0, -0.49909, 4.36318e-08, -0.0301584, -49.6588, 15.2664, -207.207 )
+MOVE_SPEED = 30.0
+MODE = 1
+
+[node name="Graveyard" parent="." instance=ExtResource( 13 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -30.7276, 0, 73.3354 )
+
+[node name="Walker Group" type="Spatial" parent="."]
+
+[node name="walker_test" parent="Walker Group" instance=ExtResource( 14 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 13.5069, 0, -26.2675 )
+
+[node name="walker_test2" parent="Walker Group" instance=ExtResource( 14 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -15.7462, 0, -211.617 )
+
+[node name="walker_test3" parent="Walker Group" instance=ExtResource( 14 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 26.4982, 0, -240.697 )
+
+[node name="walker_test4" parent="Walker Group" instance=ExtResource( 14 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -2.93999, 0, -265.437 )
+
+[node name="walker_test5" parent="Walker Group" instance=ExtResource( 14 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 36.142, 0, -297.378 )
+
+[node name="walker_test6" parent="Walker Group" instance=ExtResource( 14 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -28.9864, 0, -276.594 )
+
+[node name="walker_test9" parent="Walker Group" instance=ExtResource( 14 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -11.1532, 0, -185.171 )
+
+[node name="walker_test10" parent="Walker Group" instance=ExtResource( 14 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 31.0912, 0, -214.251 )
+
+[node name="walker_test11" parent="Walker Group" instance=ExtResource( 14 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 1.65301, 0, -238.991 )
+
+[node name="walker_test12" parent="Walker Group" instance=ExtResource( 14 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 40.735, 0, -270.931 )
+
+[node name="walker_test13" parent="Walker Group" instance=ExtResource( 14 )]
+transform = Transform( 0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -24.3934, 0, -250.148 )
+
+[node name="walker_test14" parent="Walker Group" instance=ExtResource( 14 )]
+transform = Transform( -0.287735, 0, -0.0849034, 0, 0.3, 0, 0.0849034, 0, -0.287735, 21.1229, 0, -230.537 )
+
+[node name="walker_test15" parent="Walker Group" instance=ExtResource( 14 )]
+transform = Transform( -0.287735, 0, -0.0849034, 0, 0.3, 0, 0.0849034, 0, -0.287735, -11.1645, 0, -190.691 )
+
+[node name="walker_test16" parent="Walker Group" instance=ExtResource( 14 )]
+transform = Transform( -0.287735, 0, -0.0849034, 0, 0.3, 0, 0.0849034, 0, -0.287735, 24.072, 0, -175.293 )
+
+[node name="walker_test17" parent="Walker Group" instance=ExtResource( 14 )]
+transform = Transform( -0.287735, 0, -0.0849034, 0, 0.3, 0, 0.0849034, 0, -0.287735, -4.37278, 0, -133.598 )
+
+[node name="walker_test18" parent="Walker Group" instance=ExtResource( 14 )]
+transform = Transform( -0.287735, 0, -0.0849034, 0, 0.3, 0, 0.0849034, 0, -0.287735, 52.2111, 0, -171.964 )
+
+[node name="walker_test19" parent="Walker Group" instance=ExtResource( 14 )]
+transform = Transform( -0.287735, 0, -0.0849034, 0, 0.3, 0, 0.0849034, 0, -0.287735, 9.23312, 0, -254.602 )
+
+[node name="walker_test20" parent="Walker Group" instance=ExtResource( 14 )]
+transform = Transform( -0.287735, 0, -0.0849034, 0, 0.3, 0, 0.0849034, 0, -0.287735, -23.0543, 0, -214.756 )
+
+[node name="walker_test21" parent="Walker Group" instance=ExtResource( 14 )]
+transform = Transform( -0.287735, 0, -0.0849034, 0, 0.3, 0, 0.0849034, 0, -0.287735, 12.1822, 0, -199.358 )
+
+[node name="walker_test22" parent="Walker Group" instance=ExtResource( 14 )]
+transform = Transform( -0.287735, 0, -0.0849034, 0, 0.3, 0, 0.0849034, 0, -0.287735, -16.2626, 0, -157.663 )
+
+[node name="walker_test23" parent="Walker Group" instance=ExtResource( 14 )]
+transform = Transform( -0.287735, 0, -0.0849034, 0, 0.3, 0, 0.0849034, 0, -0.287735, 40.3213, 0, -196.029 )
+
+[node name="walker_test7" parent="Walker Group" instance=ExtResource( 14 )]
+transform = Transform( -0.235059, 0, -0.186406, 0, 0.3, 0, 0.186406, 0, -0.235059, 47.4384, 0, -147.643 )
+
+[node name="walker_test8" parent="Walker Group" instance=ExtResource( 14 )]
+transform = Transform( 0.260913, 0, 0.148069, 0, 0.3, 0, -0.148069, 0, 0.260913, -34.8998, 0, -107.652 )

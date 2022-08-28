@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/graveyard/model/tombstone/tombstone_mesh.tres" type="ArrayMesh" id=1]
+[ext_resource path="res://scenes/graveyard/model/tombstone/Tombstone.gltf" type="PackedScene" id=2]
+
+[node name="Tombstone" instance=ExtResource( 2 )]
+
+[node name="Mesh" parent="." index="0"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 4.03421, 0 )
+mesh = ExtResource( 1 )

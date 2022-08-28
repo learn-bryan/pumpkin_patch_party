@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/pooka/models/pumpkin_mesh.tres" type="ArrayMesh" id=1]
+[ext_resource path="res://scenes/pooka/models/leg_mesh.tres" type="CylinderMesh" id=3]
+
+[node name="Pooka" type="Spatial"]
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 6.19416, 0 )
+
+[node name="pump-mesh" type="MeshInstance" parent="."]
+visible = false
+mesh = ExtResource( 1 )
+material/0 = null
+
+[node name="Armature" type="Spatial" parent="."]
+
+[node name="Skeleton" type="Skeleton" parent="Armature"]
+
+[node name="leg-mesh" type="MeshInstance" parent="Armature/Skeleton"]
+mesh = ExtResource( 3 )
+material/0 = null
+
+[node name="SkeletonIK" type="SkeletonIK" parent="Armature/Skeleton"]
+process_priority = 1
+
+[node name="MeshInstance" type="MeshInstance" parent="Armature/Skeleton"]

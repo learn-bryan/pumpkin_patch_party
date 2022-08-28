@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/boombox/models/boombox_mesh.tres" type="ArrayMesh" id=1]
+[ext_resource path="res://scenes/boombox/models/BoomBox.gltf" type="PackedScene" id=2]
+
+[node name="BoomBox" instance=ExtResource( 2 )]
+
+[node name="Mesh" parent="." index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.43881, -0.721358, 0.233419 )
+mesh = ExtResource( 1 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="." index="1"]
+transform = Transform( 0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 5.94304, 0 )
+visible = false

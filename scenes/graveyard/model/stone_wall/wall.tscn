@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/graveyard/model/stone_wall/wall_mesh.tres" type="ArrayMesh" id=1]
+[ext_resource path="res://scenes/graveyard/model/stone_wall/wall.gltf" type="PackedScene" id=2]
+
+[node name="wall" instance=ExtResource( 2 )]
+
+[node name="Mesh" parent="." index="0"]
+transform = Transform( 3, 0, 0, 0, 3, 0, 0, 0, 3, 6.05124, 0, 1.28379 )
+mesh = ExtResource( 1 )

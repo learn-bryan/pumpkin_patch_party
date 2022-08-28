@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/tombstone/models/tombstone_mesh.tres" type="ArrayMesh" id=1]
+[ext_resource path="res://scenes/tombstone/models/Tombstone.gltf" type="PackedScene" id=2]
+
+[node name="Tombstone" instance=ExtResource( 2 )]
+
+[node name="Mesh" parent="." index="0"]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 4, 0 )
+mesh = ExtResource( 1 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="." index="1"]
+transform = Transform( 0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 5.18412, 0 )
+visible = false

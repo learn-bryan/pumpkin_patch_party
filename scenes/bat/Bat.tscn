@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/bat/models/Bat.gltf" type="PackedScene" id=1]
+[ext_resource path="res://scenes/bat/models/bat_mesh.tres" type="ArrayMesh" id=2]
+[ext_resource path="res://scenes/bat/Bat.gd" type="Script" id=3]
+
+[node name="Bat" instance=ExtResource( 1 )]
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0 )
+script = ExtResource( 3 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="." index="0"]
+transform = Transform( 0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 5.16485, 0 )
+visible = false
+
+[node name="Pivot" type="Spatial" parent="." index="1"]
+
+[node name="Mesh" type="MeshInstance" parent="Pivot" index="0"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+mesh = ExtResource( 2 )
+material/0 = null
+
+[node name="Mesh" parent="." index="2"]
+visible = false
+mesh = null

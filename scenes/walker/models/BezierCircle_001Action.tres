@@ -1,0 +1,12 @@
+[gd_resource type="Animation" format=2]
+
+[resource]
+resource_name = "BezierCircle001Action"
+length = 7.83333
+tracks/0/type = "transform"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = true
+tracks/0/enabled = false
+tracks/0/keys = PoolRealArray( 0, 1, 0.175871, 1.05366, 2.82498, 0, 0.258819, 0, 0.965926, 1, 1, 1, 7.83333, 1, 0.175871, 1.05366, 2.82498, 0, 0.258819, 0, 0.965926, 1, 1, 1 )
